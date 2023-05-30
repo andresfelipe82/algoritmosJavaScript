@@ -39,6 +39,13 @@ while (continuar == "si") {
       let cantidad = Number(prompt("Ingrese la cantidad"));
       ejercicio5(valor, cantidad);
       break;
+    case 6:
+      let notas = [];
+      for (let i = 0; i < 4; i++) {
+        notas[i] = Number(prompt("Ingrese la nota " + (i + 1)));
+      }
+      ejercicio6(notas);
+      break;
     default:
       break;
   }
@@ -136,4 +143,28 @@ function ejercicio5(valor, cantidad) {
   }
   alert("El valor es " + total);
   alert("El iva es " + iva);
+}
+
+function ejercicio6(notas) {
+  let porcentaje = 0.1;
+  notaFinal = 0;
+
+  if (notas[notas.length - 1] == 5) {
+    for (let i = 0; i < notas.length - 1; i++) {
+      notas[i] = notas[i] + 1;
+    }
+  }
+
+  for (let i = 0; i < notas.length; i++) {
+    console.log(notas[i]);
+    if (notas[i] > 5) {
+      alert("Las notas deben ser entre 1 y 5");
+      return;
+    }
+    console.log(i, notas[i] * porcentaje);
+    notaFinal += notas[i] * porcentaje;
+    porcentaje += 0.1;
+  }
+  console.log(notaFinal);
+  alert("La nota final es " + notaFinal.toFixed(1));
 }
