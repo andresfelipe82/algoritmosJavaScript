@@ -29,6 +29,11 @@ while (continuar == "si") {
       let lado3 = Number(prompt("Ingrese el lado 3"));
       ejercicio3(lado1, lado2, lado3);
       break;
+    case 4:
+      let numero1 = Number(prompt("Ingrese el numero 1"));
+      let numero2 = Number(prompt("Ingrese el numero 2"));
+      ejercicio4(numero1, numero2);
+      break;
     default:
       break;
   }
@@ -84,3 +89,28 @@ function ejercicio3(lado1, lado2, lado3) {
   }
 }
 
+function ejercicio4(num1, num2) {
+  contadorNum1 = 0;
+  contadorNum2 = 0;
+  for (let i = 0; i < num1; i++) {
+    if (num1 % i == 0) {
+      contadorNum1 += i;
+    }
+  }
+  if (contadorNum1 != num2) {
+    alert("Los numeros " + num1 + " y " + num2 + " No son amigos");
+    return;
+  }
+  for (let j = 0; j < num2; j++) {
+    if (num2 % j == 0) {
+      contadorNum2 += j;
+    }
+  }
+  if (contadorNum2 != num1) {
+    alert("Los numeros " + num1 + " y " + num2 + " No son amigos");
+    return;
+  } else {
+    alert("Los numeros " + num1 + " y " + num2 + " Son amigos");
+    return;
+  }
+}
