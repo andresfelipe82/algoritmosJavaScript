@@ -1,11 +1,11 @@
 let continuar = "si";
 
-let contadorEjUno = 0;
-let contadorEjDos = 0;
-let contadorEjTres = 0;
-let contadorEjCuatro = 0;
-let contadorEjCinco = 0;
-let contadorEjSeis = 0;
+let contador_ej_uno = 0;
+let contador_ej_dos = 0;
+let contador_ej_tres = 0;
+let contador_ej_cuatro = 0;
+let contador_ej_cinco = 0;
+let contador_ej_seis = 0;
 while (continuar == "si") {
   let menu = Number(
     prompt(
@@ -18,33 +18,44 @@ while (continuar == "si") {
       let num2 = Number(prompt("Ingrese el numero 2"));
       let num3 = Number(prompt("Ingrese el numero 3"));
       ejercicio1(num1, num2, num3);
+      contador_ej_uno++;
       break;
     case 2:
       let radio = Number(prompt("Ingrese el radio del ciculo"));
       ejercicio2(radio);
+      contador_ej_dos++;
       break;
     case 3:
       let lado1 = Number(prompt("Ingrese el lado 1"));
       let lado2 = Number(prompt("Ingrese el lado 2"));
       let lado3 = Number(prompt("Ingrese el lado 3"));
       ejercicio3(lado1, lado2, lado3);
+      contador_ej_tres++;
       break;
     case 4:
       let numero1 = Number(prompt("Ingrese el numero 1"));
       let numero2 = Number(prompt("Ingrese el numero 2"));
       ejercicio4(numero1, numero2);
+      contador_ej_cuatro++;
       break;
     case 5:
       let valor = Number(prompt("Ingrese el valor"));
       let cantidad = Number(prompt("Ingrese la cantidad"));
       ejercicio5(valor, cantidad);
+      contador_ej_cinco++;
       break;
     case 6:
       let notas = [];
       for (let i = 0; i < 4; i++) {
-        notas[i] = Number(prompt("Ingrese la nota " + (i + 1)));
+        let pregunta =  Number(prompt("Ingrese la nota " + (i + 1)));
+        if(pregunta>5){
+          alerta("El numero es mayor a 5");
+          return
       }
+        notas[i] = pregunta
+        
       ejercicio6(notas);
+      contador_ej_seis++;
       break;
     default:
       break;
@@ -92,7 +103,7 @@ function ejercicio3(lado1, lado2, lado3) {
   if (lado1 == lado2 && lado1 == lado3) {
     alert("El triangulo es equilatero");
     return;
-  } else if (lado1 == lado2 && lado1 !== lado3) {
+  } else if (lado1 == lado2 && lado1 !== lado3 || lado2==lado3 && lado1!=lado2) {
     alert("El triangulo es isóceles");
     return;
   } else if (lado1 !== lado2 && lado1 !== lado3) {
@@ -157,14 +168,27 @@ function ejercicio6(notas) {
 
   for (let i = 0; i < notas.length; i++) {
     console.log(notas[i]);
-    if (notas[i] > 5) {
-      alert("Las notas deben ser entre 1 y 5");
-      return;
-    }
     console.log(i, notas[i] * porcentaje);
     notaFinal += notas[i] * porcentaje;
     porcentaje += 0.1;
   }
   console.log(notaFinal);
-  alert("La nota final es " + notaFinal.toFixed(1));
+  if(notaFinal>3.5){
+    alert("Ganó")
+  }
+  else{
+    alert("Perdió")
+  }
 }
+}
+let contadores_ejercicios = [contador_ej_uno,contador_ej_dos,contador_ej_tres,contador_ej_cuatro,contador_ej_cinco,contador_ej_seis];
+contadores_ejercicios.sort();
+console.log("El ejercicio 1 se ejecutó " + contador_ej_uno + " veces");
+console.log("El ejercicio 2 se ejecutó " + contador_ej_dos + " veces");
+console.log("El ejercicio 3 se ejecutó " + contador_ej_tres + " veces");
+console.log("El ejercicio 4 se ejecutó " + contador_ej_cuatro + " veces");
+console.log("El ejercicio 5 se ejecutó " + contador_ej_cinco + " veces");
+console.log("El ejercicio 6 se ejecutó " + contador_ej_seis + " veces");
+console.log("El ejercicio que menos se ejecutó fue: "+contadores_ejercicios[0]);
+console.log("El ejercicio que mas se ejecutó fue: "+contadores_ejercicios[contadores_ejercicios.length-1]);
+
