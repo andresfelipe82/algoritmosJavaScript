@@ -19,6 +19,10 @@ while (continuar == "si") {
       let num3 = Number(prompt("Ingrese el numero 3"));
       ejercicio1(num1, num2, num3);
       break;
+    case 2:
+      let radio = Number(prompt("Ingrese el radio del ciculo"));
+      ejercicio2(radio);
+      break;
     default:
       break;
   }
@@ -55,4 +59,21 @@ function ejercicio1(num1, num2, num3) {
   }
   alert(`Los numero de Mayor a Menor son ` + numero_mayor_menor);
   alert(`Los numero de Menor a Mayor son ` + numero_menor_mayor);
+}
+
+function ejercicio2(radio) {
+  alert("El area del circulo es " + 3.1416 * (radio * radio));
+}
+
+function ejercicio3(lado1, lado2, lado3) {
+  if (lado1 == lado2 && lado1 == lado3) {
+    alert("El triangulo es equilatero");
+    return;
+  } else if (lado1 == lado2 && lado1 !== lado3) {
+    alert("El triangulo es isóceles");
+    return;
+  } else if (lado1 !== lado2 && lado1 !== lado3) {
+    alert("El triangulo es escaleno");
+    return;
+  }
 }
