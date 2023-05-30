@@ -23,6 +23,12 @@ while (continuar == "si") {
       let radio = Number(prompt("Ingrese el radio del ciculo"));
       ejercicio2(radio);
       break;
+    case 3:
+      let lado1 = Number(prompt("Ingrese el lado 1"));
+      let lado2 = Number(prompt("Ingrese el lado 2"));
+      let lado3 = Number(prompt("Ingrese el lado 3"));
+      ejercicio3(lado1, lado2, lado3);
+      break;
     default:
       break;
   }
@@ -77,3 +83,4 @@ function ejercicio3(lado1, lado2, lado3) {
     return;
   }
 }
+
