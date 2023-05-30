@@ -34,6 +34,11 @@ while (continuar == "si") {
       let numero2 = Number(prompt("Ingrese el numero 2"));
       ejercicio4(numero1, numero2);
       break;
+    case 5:
+      let valor = Number(prompt("Ingrese el valor"));
+      let cantidad = Number(prompt("Ingrese la cantidad"));
+      ejercicio5(valor, cantidad);
+      break;
     default:
       break;
   }
@@ -113,4 +118,22 @@ function ejercicio4(num1, num2) {
     alert("Los numeros " + num1 + " y " + num2 + " Son amigos");
     return;
   }
+}
+
+function ejercicio5(valor, cantidad) {
+  let subTotal = valor * cantidad;
+  let iva = subTotal * 0.19;
+  let total;
+  console.log(subTotal);
+  if (subTotal > 500000) {
+    total = subTotal;
+  } else {
+    total = subTotal - iva;
+  }
+
+  if (total > 1000000) {
+    total = total - total * 0.1;
+  }
+  alert("El valor es " + total);
+  alert("El iva es " + iva);
 }
